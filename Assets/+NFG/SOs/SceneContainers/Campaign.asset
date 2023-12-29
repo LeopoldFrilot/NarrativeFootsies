@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3101c7ae84f44088ab6a28036c040d19, type: 3}
+  m_Name: Campaign
+  m_EditorClassIdentifier: 
+  sceneStructure:
+  - {fileID: 11400000, guid: 93658b84d99251b4bbb6b4e3793a3784, type: 2}
+  - {fileID: 11400000, guid: dc17e72e5cc30554f89d3b028d319dd6, type: 2}
+  - {fileID: 11400000, guid: ced9c8deef1dc6e479c900b8719825e4, type: 2}
+  - {fileID: 11400000, guid: cf039c655494bb54e95e42c432248de6, type: 2}
+  - {fileID: 11400000, guid: 0e63d922c33d8274fb0ac858b4aa9460, type: 2}
+  - {fileID: 11400000, guid: a257bafd26272f14c80bf884a3ac74ce, type: 2}
+  - {fileID: 11400000, guid: 769308127350d5f4abdec9e746eadd71, type: 2}
+  - {fileID: 11400000, guid: e7836069ca2b0784c93152748ac54cc6, type: 2}
+  maxRepeatingTimes: 0
+  scenesBeforeRepeatingStructure: []
+  repeatingStructure: []
+  scenesAfterRepeatingStructure: []

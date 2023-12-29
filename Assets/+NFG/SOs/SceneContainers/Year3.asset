@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1e9256543494be4a3f2a032a157a596, type: 3}
+  m_Name: Year3
+  m_EditorClassIdentifier: 
+  sceneStructure:
+  - {fileID: 11400000, guid: 0a51dc34fc1b08843bd8444422ed15cb, type: 2}
+  - {fileID: 11400000, guid: b2fe25b63185ecc40ad0101d01ceef6b, type: 2}
+  - {fileID: 11400000, guid: d47f873aefca6194baf1f769e89a4072, type: 2}
+  - {fileID: 11400000, guid: 35e62586c9ba48746bca8cff9cdc2778, type: 2}
+  maxRepeatingTimes: 0
+  scenesBeforeRepeatingStructure: []
+  repeatingStructure: []
+  scenesAfterRepeatingStructure: []
