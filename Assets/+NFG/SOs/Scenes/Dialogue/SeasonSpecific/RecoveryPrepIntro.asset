@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cca79ee4d1d04efb9cd83c1fe1fa1861, type: 3}
+  m_Script: {fileID: 11500000, guid: 538d6a0ccba24782a7a23591196d75e9, type: 3}
   m_Name: RecoveryPrepIntro
   m_EditorClassIdentifier: 
   sceneStructure: []

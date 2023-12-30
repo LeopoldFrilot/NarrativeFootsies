@@ -351,7 +351,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c2ff8454b718d242a2d887dedce8596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  campaignStructure: []
+  campaignStartIndex: 3
+  campaignStructure: {fileID: 11400000, guid: d47f873aefca6194baf1f769e89a4072, type: 2}
 --- !u!4 &680074360
 Transform:
   m_ObjectHideFlags: 0

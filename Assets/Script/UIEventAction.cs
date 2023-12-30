@@ -15,6 +15,8 @@ namespace Footsies
             ExitGame,
             BGMToggle,
             SEToggle,
+            LoadCampaign,
+            ReturnToStart
         }
 
         public Action action;
@@ -49,25 +51,41 @@ namespace Footsies
                     break;
                 case Action.SEToggle:
                     break;
+                case Action.LoadCampaign:
+                    LoadCampaign();
+                    break;
+                case Action.ReturnToStart:
+                    LoadStartScene();
+                    break;
             }
         }
 
-        public void LoadVsCPU()
+        private void LoadStartScene()
+        {
+            GameManager.Instance.LoadTitleScene();
+        }
+
+        private void LoadVsCPU()
         {
             GameManager.Instance.LoadVsCPUScene();
         }
 
-        public void LoadVsPlayer()
+        private void LoadVsPlayer()
         {
             GameManager.Instance.LoadVsPlayerScene();
         }
 
-        public void ExitGame()
+        private void ExitGame()
         {
             Application.Quit();
         }
 
-        public void toggleBGM()
+        private void LoadCampaign()
+        {
+            NFGGameWizard.Instance.LoadCampaign();
+        }
+
+        private void toggleBGM()
         {
             var isOn = SoundManager.Instance.toggleBGM();
             var toggle = gameObject.GetComponent<Toggle>();
