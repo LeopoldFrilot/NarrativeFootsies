@@ -178,7 +178,14 @@ namespace Footsies
                     if(fighter1RoundWon >= maxRoundWon
                         || fighter2RoundWon >= maxRoundWon)
                     {
-                        GameManager.Instance.LoadTitleScene();
+                        if (!GameManager.Instance.isCampaign)
+                        {
+                            GameManager.Instance.LoadTitleScene();
+                        }
+                        else
+                        {
+                            NFGEventHub.TriggerFightFinished();
+                        }
                     }
 
                     break;

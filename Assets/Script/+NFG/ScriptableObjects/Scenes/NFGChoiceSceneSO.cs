@@ -14,5 +14,13 @@ public class NFGChoiceSceneSO : NFGSceneSO
 [Serializable]
 public class NFGChoiceScene : NFGScene
 {
-    
+    public override void Tick()
+    {
+        base.Tick();
+        Debug.Log(heirarchyID);
+        if (internalClock >= debugMaxTime)
+        {
+            OnSceneEnd?.Invoke();
+        }
+    }
 }

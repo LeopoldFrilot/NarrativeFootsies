@@ -15,5 +15,13 @@ public class NFGChoiceSeparatorSO : NFGSceneSO
 [Serializable]
 public class NFGChoiceSeparator : NFGScene
 {
-    
+    public override void Tick()
+    {
+        base.Tick();
+        Debug.Log(heirarchyID);
+        if (internalClock >= debugMaxTime)
+        {
+            OnSceneEnd?.Invoke();
+        }
+    }
 }

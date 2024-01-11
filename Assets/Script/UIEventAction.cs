@@ -82,7 +82,7 @@ namespace Footsies
 
         private void LoadCampaign()
         {
-            NFGGameWizard.Instance.LoadCampaign();
+            GameManager.Instance.LoadCampaign();
         }
 
         private void toggleBGM()

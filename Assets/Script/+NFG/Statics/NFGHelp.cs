@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class NFGHelp
 {
+    public static NFGGameWizard GW => NFGGameWizard.Instance;
     public static List<T> AppendArray<T>(List<T> Arr1, List<T> Arr2)
     {
         foreach (var elem in Arr2)

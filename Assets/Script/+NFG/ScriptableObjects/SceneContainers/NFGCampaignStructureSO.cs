@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,9 +42,7 @@ public class NFGCampaignStructureSO : NFGSceneSO
 {
     public override NFGScene CreateScene()
     {
-        var campaign = new NFGCampaign();
-        campaign.Initialize(this, "Campaign", null);
-        return campaign;
+        return new NFGCampaign();
     }
 }
 
@@ -55,24 +54,42 @@ public abstract class NFGScene
     public List<NFGScene> childScenes = new();
     public NFGScene parentScene = null;
 
-    public virtual void Initialize(NFGSceneSO data, string hID, NFGScene parentScene)
+    public Action OnSceneEnd;
+    
+    protected float internalClock = 0;
+    protected float debugMaxTime = .5f;
+    
+    public void TriggerSceneEnd()
+    {
+        OnSceneEnd?.Invoke();
+    }
+
+    public virtual void Initialize(NFGSceneSO data, string hID, ref NFGScene parentScene)
     {
         dataRef = data;
         heirarchyID = hID;
         this.parentScene = parentScene;
-        
         childScenes.Clear();
-        for (int i = 0; i < data.sceneStructure.Count; i++)
-        {
-            var newScene = data.sceneStructure[i].CreateScene();
-            newScene.Initialize(data.sceneStructure[i], $"{heirarchyID}.{i}", this);
-            childScenes.Add(newScene);
-        }
+        internalClock = 0;
+    }
+
+    public virtual void Tick()
+    {
+        internalClock += Time.deltaTime;
     }
 }
 
 [Serializable]
 public class NFGCampaign : NFGScene
 {
-    
+    public override void Tick()
+    {
+        base.Tick();
+        
+        Debug.Log(heirarchyID);
+        if (internalClock >= debugMaxTime)
+        {
+            OnSceneEnd?.Invoke();
+        }
+    }
 }

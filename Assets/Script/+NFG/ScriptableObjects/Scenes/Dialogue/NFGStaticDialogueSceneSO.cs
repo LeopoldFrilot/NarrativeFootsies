@@ -19,5 +19,13 @@ public class NFGStaticDialogueSceneSO : NFGDialogueSceneSO
 [Serializable]
 public class NFGStaticDialogueScene : NFGScene
 {
-    
+    public override void Tick()
+    {
+        base.Tick();
+        Debug.Log(heirarchyID);
+        if (internalClock >= debugMaxTime)
+        {
+            OnSceneEnd?.Invoke();
+        }
+    }
 }

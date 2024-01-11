@@ -14,5 +14,13 @@ public class NFGTournamentSO : NFGSceneSO
 [Serializable]
 public class NFGTournament : NFGScene
 {
-    
+    public override void Tick()
+    {
+        base.Tick();
+        Debug.Log(heirarchyID);
+        if (internalClock >= debugMaxTime)
+        {
+            OnSceneEnd?.Invoke();
+        }
+    }
 }

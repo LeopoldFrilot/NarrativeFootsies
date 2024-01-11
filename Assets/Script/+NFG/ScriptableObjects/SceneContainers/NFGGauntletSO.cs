@@ -14,5 +14,13 @@ public class NFGGauntletSO : NFGSceneSO
 [Serializable]
 public class NFGGauntlet : NFGScene
 {
-    
+    public override void Tick()
+    {
+        base.Tick();
+        Debug.Log(heirarchyID);
+        if (internalClock >= debugMaxTime)
+        {
+            OnSceneEnd?.Invoke();
+        }
+    }
 }

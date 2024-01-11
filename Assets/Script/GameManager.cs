@@ -17,6 +17,7 @@ namespace Footsies
 
         public SceneIndex currentScene { get; private set; }
         public bool isVsCPU { get; private set; }
+        public bool isCampaign { get; private set; }
 
         private void Awake()
         {
@@ -68,6 +69,13 @@ namespace Footsies
             {
                 SoundManager.Instance.playSE(menuSelectAudioClip);
             }
+        }
+
+        public void LoadCampaign()
+        {
+            isVsCPU = true;
+            isCampaign = true;
+            NFGGameWizard.Instance.LoadCampaign();
         }
     }
 

@@ -14,5 +14,13 @@ public class NFGSeasonSO : NFGSceneSO
 [Serializable]
 public class NFGSeason : NFGScene
 {
-    
+    public override void Tick()
+    {
+        base.Tick();
+        Debug.Log(heirarchyID);
+        if (internalClock >= debugMaxTime)
+        {
+            OnSceneEnd?.Invoke();
+        }
+    }
 }
