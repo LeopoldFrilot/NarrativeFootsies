@@ -8,6 +8,6 @@ public class NFGGameWizard : Singleton<NFGGameWizard>
 
     public void LoadCampaign()
     {
-        campaignRunner.StartCampaign();
+        StartCoroutine(campaignRunner.StartCampaign());
     }
 }

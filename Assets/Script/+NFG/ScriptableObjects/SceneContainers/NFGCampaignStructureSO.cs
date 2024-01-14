@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [Serializable]
@@ -61,7 +62,7 @@ public abstract class NFGScene
     
     public void TriggerSceneEnd()
     {
-        OnSceneEnd?.Invoke();
+        OnEndSceneInternal();
     }
 
     public virtual void Initialize(NFGSceneSO data, string hID, ref NFGScene parentScene)
@@ -77,19 +78,33 @@ public abstract class NFGScene
     {
         internalClock += Time.deltaTime;
     }
+
+    protected virtual void OnEndSceneInternal()
+    {
+        OnSceneEnd?.Invoke();
+    }
 }
 
 [Serializable]
 public class NFGCampaign : NFGScene
 {
-    public override void Tick()
+    public override void Initialize(NFGSceneSO data, string hID, ref NFGScene parentScene)
     {
-        base.Tick();
-        
-        Debug.Log(heirarchyID);
-        if (internalClock >= debugMaxTime)
-        {
-            OnSceneEnd?.Invoke();
-        }
+        base.Initialize(data, hID, ref parentScene);
+        NFGCampaignUI.Instance.Initialize("Welcome to the campaign!\nPress Continue to begin your journey");
+        NFGCampaignUI.Instance.buttons[0].gameObject.SetActive(true);
+        NFGCampaignUI.Instance.buttons[0].GetComponentInChildren<TextMeshProUGUI>().text = "Continue";
+        NFGCampaignUI.Instance.buttons[0].onClick.AddListener(OnClick);
+    }
+
+    private void OnClick()
+    {
+        TriggerSceneEnd();
+    }
+
+    protected override void OnEndSceneInternal()
+    {
+        NFGCampaignUI.Instance.buttons[0].onClick.RemoveListener(OnClick);
+        base.OnEndSceneInternal();
     }
 }
